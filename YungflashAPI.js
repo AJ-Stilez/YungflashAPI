@@ -55,9 +55,8 @@ app.get("/categories/", async (req, res) => {
         }
         else if(req.query.category){
             const category = req.query.category.toLowerCase();
-            console.log(category);
             const advice = await MyModel.find( { category: category } );
-            console.log(advice);
+
             if(advice.length == 0){
                 res.json({error: `${category} is not a category`});
             }

@@ -21,7 +21,9 @@ mongoose.connect(uri)
 
     const MyModel = mongoose.model("advices", mySchema);
 
-
+app.get("/", (req, res) => {
+    res.send("<h1> Welcome to Yungflash API Opensource Documentaion </h1>")
+})
 app.get("/advices", async (req, res) => {
     try{
         const advices = await MyModel.find();
